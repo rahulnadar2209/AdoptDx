@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdoptDX - AI & Automation Consulting</title>
+    <title>AdoptDX AI Solutions & Microsoft Services | Transform Your Business</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #323130;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
+
+        /* Header Styles */
+        .header {
             background: linear-gradient(135deg, #0078d4, #106ebe);
-            color: white;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -34,511 +28,720 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        nav {
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
+            color: white;
+            font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
         }
-        
-        .nav-links {
+
+        .nav-menu {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
-        
-        .nav-links a {
+
+        .nav-menu a {
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
         }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
+
+        .nav-menu a:hover {
+            color: #ff8c00;
         }
-        
+
+        .cta-button {
+            background: #ff8c00;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e67c00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #0078d4;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .cta-button {
+                margin-top: 1rem;
+                display: inline-block;
+            }
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0078d4, #005a9e);
-            color: white;
-            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f3f2f1, #e1dfdd);
+            padding: 8rem 2rem 4rem;
             text-align: center;
         }
-        
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            font-weight: 700;
+            color: #323130;
         }
-        
+
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            color: #605e5c;
         }
-        
-        .cta-buttons {
+
+        .hero-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        
+
         .btn-primary {
-            background: #ff6b35;
+            background: #0078d4;
             color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: 600;
         }
-        
+
+        .btn-primary:hover {
+            background: #106ebe;
+        }
+
         .btn-secondary {
             background: transparent;
+            color: #0078d4;
+            padding: 1rem 2rem;
+            border: 2px solid #0078d4;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background: #0078d4;
             color: white;
-            border: 2px solid white;
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+        /* Stats Section */
+        .stats-section {
+            background: #0078d4;
+            color: white;
+            padding: 4rem 2rem;
         }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: #f8f9fa;
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        .section-title {
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
         }
-        
-        .services-grid {
+
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff8c00;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Success Stories Section */
+        .success-stories {
+            padding: 4rem 2rem;
+            background: #f8f8f8;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #323130;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #605e5c;
+        }
+
+        .stories-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
-        
-        .service-card {
+
+        .story-card {
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .service-card:hover {
+
+        .story-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #0078d4;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-        
-        .about-text p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .stats {
+
+        .story-header {
             display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+            align-items: center;
+            margin-bottom: 1rem;
         }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #0078d4;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .about-image {
-            background: #e9ecef;
-            height: 400px;
-            border-radius: 10px;
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            background: #0078d4;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
-            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
         }
-        
-        /* Portfolio Section */
-        .portfolio {
-            padding: 80px 0;
-            background: #f8f9fa;
+
+        .company-info h3 {
+            color: #323130;
+            margin-bottom: 0.25rem;
         }
-        
-        .portfolio-grid {
+
+        .company-info p {
+            color: #605e5c;
+            font-size: 0.9rem;
+        }
+
+        .story-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .story-results {
+            display: flex;
+            justify-content: space-between;
+            background: #f3f2f1;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #107c10;
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            color: #605e5c;
+        }
+
+        .microsoft-badge {
+            background: #ff8c00;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Services Preview */
+        .services-preview {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
-        .portfolio-item {
-            background: white;
+
+        .service-card {
+            padding: 2rem;
+            border: 2px solid #e1dfdd;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            text-align: center;
+            transition: all 0.3s;
         }
-        
-        .portfolio-item:hover {
+
+        .service-card:hover {
+            border-color: #0078d4;
             transform: translateY(-5px);
         }
-        
-        .portfolio-image {
-            height: 200px;
-            background: linear-gradient(45deg, #0078d4, #005a9e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-        }
-        
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-content h3 {
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .portfolio-content p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: #333;
-            color: white;
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-info p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-        
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-        
-        .form-group {
+
+        .service-icon {
+            font-size: 3rem;
+            color: #0078d4;
             margin-bottom: 1rem;
         }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+
+        .service-card h3 {
+            color: #323130;
+            margin-bottom: 1rem;
         }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: #222;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        
-        .social-links a:hover {
-            opacity: 1;
-        }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .hero p {
-                font-size: 1.1rem;
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-            
-            .about-content,
-            .contact-content {
+
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .cta-buttons {
-                flex-direction: column;
+
+            .stories-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .stats {
-                justify-content: center;
+
+            .story-results {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">AdoptDX</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-brain"></i> AdoptDX
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#microsoft">Microsoft Solutions</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#success-stories">Success Stories</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="cta-button">Get Consultation</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Transform Your Business with AI & Automation</h1>
-            <p>Expert Power Platform Services, AI Consulting & Business Process Automation</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
-                <a href="#services" class="btn btn-secondary">View Our Services</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Business with Microsoft AI Solutions</h1>
+            <p>Expert AI implementation using Azure Cognitive Services, Power Platform, and Office 365 Copilot. Drive innovation and efficiency with proven Microsoft technologies.</p>
+            <div class="hero-buttons">
+                <a href="#consultation" class="btn-primary">Schedule Free AI Assessment</a>
+                <a href="#success-stories" class="btn-secondary">View Success Stories</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Power Platform Development</h3>
-                    <p>Custom Power BI dashboards, Power Apps development, Power Automate workflows, and Power Virtual Agents to streamline your business processes and boost productivity.</p>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <div class="stat-label">Projects Delivered</div>
+                    <div class="stat-description">AI implementations across various industries</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Consulting & Strategy</h3>
-                    <p>Strategic AI implementation, machine learning solutions, and intelligent automation to help your business stay competitive in the digital age.</p>
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <div class="stat-label">Microsoft Certifications</div>
+                    <div class="stat-description">Azure AI, Power Platform, and Office 365 expertise</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3>Business Process Automation</h3>
-                    <p>End-to-end automation solutions that eliminate manual tasks, reduce errors, and free up your team to focus on high-value activities.</p>
+                <div class="stat-item">
+                    <span class="stat-number">45%</span>
+                    <div class="stat-label">Average ROI Increase</div>
+                    <div class="stat-description">Typical productivity improvement for clients</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose PowerTech Solutions?</h2>
-                    <p>We're Microsoft-certified experts specializing in digital transformation through Power Platform and AI technologies. Our team has helped dozens of businesses automate processes, gain actionable insights, and accelerate growth.</p>
-                    <p>With proven expertise in Power BI, Power Apps, Power Automate, and cutting-edge AI solutions, we deliver measurable results that drive real business value.</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">95%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">40%</div>
-                            <div class="stat-label">Avg. Efficiency Gain</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    [Professional Team Photo or Office Image]
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <div class="stat-label">Industries Served</div>
+                    <div class="stat-description">Healthcare, Finance, Manufacturing, and more</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Success Stories</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Manufacturing Dashboard</div>
-                    <div class="portfolio-content">
-                        <h3>Real-time Production Analytics</h3>
-                        <p>Implemented Power BI dashboard that increased operational efficiency by 35% for a manufacturing client.</p>
+    <!-- Success Stories Section -->
+    <section class="success-stories" id="success-stories">
+        <div class="section-header">
+            <h2>Success Stories</h2>
+            <p>Real results from our Microsoft AI implementations</p>
+        </div>
+        
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="company-logo">MH</div>
+                    <div class="company-info">
+                        <h3>Metro Healthcare</h3>
+                        <p>Healthcare • 5,000+ employees</p>
                     </div>
+                    <span class="microsoft-badge">Azure AI</span>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">HR Automation System</div>
-                    <div class="portfolio-content">
-                        <h3>Employee Onboarding Automation</h3>
-                        <p>Power Apps solution that reduced HR processing time by 60% and improved new hire experience.</p>
+                <div class="story-content">
+                    <p>Implemented Azure Cognitive Services for medical document processing and patient inquiry automation using AI-powered chatbots.</p>
+                </div>
+                <div class="story-results">
+                    <div class="result-item">
+                        <div class="result-value">75%</div>
+                        <div class="result-label">Processing Time Reduced</div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">AI Customer Service</div>
-                    <div class="portfolio-content">
-                        <h3>AI-Powered Customer Support</h3>
-                        <p>Chatbot implementation that handles 70% of customer inquiries automatically, improving response times.</p>
+                    <div class="result-item">
+                        <div class="result-value">$2.3M</div>
+                        <div class="result-label">Annual Savings</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">98%</div>
+                        <div class="result-label">Accuracy Rate</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Ready to Transform Your Business?</h2>
-                    <p>Get a free consultation to discover how Power Platform and AI can accelerate your business growth.</p>
-                    <p>📧 info@powertechsolutions.com</p>
-                    <p>📞 +1 (555) 123-4567</p>
-                    <p>📍 123 Business Ave, Tech City, TC 12345</p>
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="company-logo">FS</div>
+                    <div class="company-info">
+                        <h3>FinServe Bank</h3>
+                        <p>Financial Services • 2,500+ employees</p>
+                    </div>
+                    <span class="microsoft-badge">Power Platform</span>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your automation or AI needs..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
+                <div class="story-content">
+                    <p>Deployed Power BI AI features and Power Automate for fraud detection and customer service optimization across all branches.</p>
+                </div>
+                <div class="story-results">
+                    <div class="result-item">
+                        <div class="result-value">60%</div>
+                        <div class="result-label">Fraud Detection Improved</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">$1.8M</div>
+                        <div class="result-label">Prevented Losses</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">4.5</div>
+                        <div class="result-label">Months ROI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="company-logo">TM</div>
+                    <div class="company-info">
+                        <h3>TechManufacturing Co</h3>
+                        <p>Manufacturing • 3,200+ employees</p>
+                    </div>
+                    <span class="microsoft-badge">Azure ML</span>
+                </div>
+                <div class="story-content">
+                    <p>Implemented predictive maintenance using Azure Machine Learning and IoT integration for manufacturing equipment optimization.</p>
+                </div>
+                <div class="story-results">
+                    <div class="result-item">
+                        <div class="result-value">40%</div>
+                        <div class="result-label">Downtime Reduced</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">$3.1M</div>
+                        <div class="result-label">Cost Savings</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">85%</div>
+                        <div class="result-label">Prediction Accuracy</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="company-logo">RE</div>
+                    <div class="company-info">
+                        <h3>RetailExpress</h3>
+                        <p>E-commerce • 1,800+ employees</p>
+                    </div>
+                    <span class="microsoft-badge">Copilot</span>
+                </div>
+                <div class="story-content">
+                    <p>Integrated Microsoft Copilot across Office 365 and implemented custom AI for inventory management and customer personalization.</p>
+                </div>
+                <div class="story-results">
+                    <div class="result-item">
+                        <div class="result-value">55%</div>
+                        <div class="result-label">Productivity Boost</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">$950K</div>
+                        <div class="result-label">Revenue Increase</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value">92%</div>
+                        <div class="result-label">User Adoption</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>&copy; 2025 PowerTech Solutions. All rights reserved.</div>
-                <div class="social-links">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">YouTube</a>
+    <!-- Services Preview -->
+    <section class="services-preview" id="services">
+        <div class="section-header">
+            <h2>Our Microsoft AI Services</h2>
+            <p>Comprehensive AI solutions powered by Microsoft technologies</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fab fa-microsoft"></i>
                 </div>
+                <h3>Azure AI Implementation</h3>
+                <p>Deploy Cognitive Services, Machine Learning models, and custom AI solutions using Microsoft Azure's powerful platform.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Power Platform AI</h3>
+                <p>Leverage Power BI AI features, Power Automate workflows, and Power Apps with integrated intelligence capabilities.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Microsoft Copilot Integration</h3>
+                <p>Enhance productivity with Copilot for Office 365, Teams, and custom business applications across your organization.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>AI Strategy Consulting</h3>
+                <p>Develop comprehensive AI roadmaps aligned with Microsoft's ecosystem and your business objectives for maximum ROI.</p>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                        const suffix = finalValue.replace(/[0-9]/g, '');
+                        
+                        let currentValue = 0;
+                        const increment = numericValue / 30;
+                        
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (currentValue >= numericValue) {
+                                stat.textContent = finalValue;
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(currentValue) + suffix;
+                            }
+                        }, 50);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(0,120,212,0.95), rgba(16,110,190,0.95))';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #0078d4, #106ebe)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
