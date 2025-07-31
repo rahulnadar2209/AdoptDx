@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdoptDX AI Solutions & Microsoft Services | Transform Your Business</title>
+    <title>AI Solutions & Microsoft Services | Transform Your Business</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -140,23 +140,136 @@
             background: linear-gradient(135deg, #f3f2f1, #e1dfdd);
             padding: 8rem 2rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: #323130;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: #605e5c;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Floating Animation Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            color: #0078d4;
+            font-size: 3rem;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 2s;
+            color: #ff8c00;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+            color: #107c10;
+        }
+
+        .floating-icon:nth-child(4) {
+            bottom: 20%;
+            right: 25%;
+            animation-delay: 1s;
+            color: #0078d4;
+            font-size: 2.5rem;
+        }
+
+        .floating-icon:nth-child(5) {
+            top: 60%;
+            left: 5%;
+            animation-delay: 3s;
+            color: #ff8c00;
+        }
+
+        .floating-icon:nth-child(6) {
+            top: 15%;
+            right: 5%;
+            animation-delay: 5s;
+            color: #107c10;
+            font-size: 1.8rem;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulsing Microsoft Logo Animation */
+        .microsoft-pulse {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            font-size: 4rem;
+            color: #0078d4;
+            opacity: 0.05;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.05;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.15;
+            }
         }
 
         .hero-buttons {
@@ -164,6 +277,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .btn-primary {
@@ -387,7 +501,111 @@
             margin-bottom: 1rem;
         }
 
-        /* Responsive Design */
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0078d4, #106ebe);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-methods {
+            list-style: none;
+        }
+
+        .contact-methods li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-methods i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: #ff8c00;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+            color: #323130;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #ff8c00;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #e67c00;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -436,17 +654,17 @@
     <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-brain"></i> AdoptDX
+                <i class="fas fa-brain"></i> AI Solutions Pro
             </a>
             
             <nav>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#microsoft">Microsoft Solutions</a></li>
+                    <li><a href="#microsoft-solutions">Microsoft Solutions</a></li>
                     <li><a href="#use-cases">Use Cases</a></li>
                     <li><a href="#success-stories">Success Stories</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="cta-button">Get Consultation</a></li>
+                    <li><a href="#contact" class="cta-button">Contact Us</a></li>
                 </ul>
             </nav>
 
@@ -460,11 +678,26 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Floating Animation Elements -->
+        <div class="floating-elements">
+            <div class="floating-icon"><i class="fab fa-microsoft"></i></div>
+            <div class="floating-icon"><i class="fas fa-brain"></i></div>
+            <div class="floating-icon"><i class="fas fa-robot"></i></div>
+            <div class="floating-icon"><i class="fas fa-cogs"></i></div>
+            <div class="floating-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="floating-icon"><i class="fas fa-cloud"></i></div>
+        </div>
+        
+        <!-- Pulsing Microsoft Logo -->
+        <div class="microsoft-pulse">
+            <i class="fab fa-microsoft"></i>
+        </div>
+        
         <div class="hero-content">
             <h1>Transform Your Business with Microsoft AI Solutions</h1>
             <p>Expert AI implementation using Azure Cognitive Services, Power Platform, and Office 365 Copilot. Drive innovation and efficiency with proven Microsoft technologies.</p>
             <div class="hero-buttons">
-                <a href="#consultation" class="btn-primary">Schedule Free AI Assessment</a>
+                <a href="#contact" class="btn-primary">Schedule Free AI Assessment</a>
                 <a href="#success-stories" class="btn-secondary">View Success Stories</a>
             </div>
         </div>
@@ -662,6 +895,207 @@
         </div>
     </section>
 
+    <!-- Microsoft Solutions Section -->
+    <section class="services-preview" id="microsoft-solutions" style="background: #f8f8f8;">
+        <div class="section-header">
+            <h2>Microsoft AI Solutions We Implement</h2>
+            <p>Cutting-edge Microsoft technologies for your business transformation</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Azure Cognitive Services</h3>
+                <p>Computer Vision, Speech Services, Language Understanding, and Text Analytics APIs for intelligent applications.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Azure Machine Learning</h3>
+                <p>End-to-end ML lifecycle management with AutoML, custom model training, and MLOps capabilities.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Power BI AI Features</h3>
+                <p>AI-powered insights, automated machine learning, and intelligent data visualization for better decision making.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Microsoft Copilot Suite</h3>
+                <p>AI assistance across Office 365, Teams, Dynamics 365, and custom business applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="services-preview" id="use-cases">
+        <div class="section-header">
+            <h2>AI Use Cases Across Industries</h2>
+            <p>Real-world applications of Microsoft AI technologies</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Healthcare AI</h3>
+                <p>Medical imaging analysis, patient data processing, and automated clinical documentation using Azure Health APIs.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3>Financial Services</h3>
+                <p>Fraud detection, risk assessment, and automated compliance monitoring with Azure AI and Power Platform.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h3>Manufacturing & IoT</h3>
+                <p>Predictive maintenance, quality control, and supply chain optimization using Azure ML and IoT integration.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Retail & E-commerce</h3>
+                <p>Personalized recommendations, inventory optimization, and customer service automation with Microsoft AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="services-preview" id="about" style="background: #f8f8f8;">
+        <div class="section-header">
+            <h2>Why Choose Our Microsoft AI Expertise</h2>
+            <p>Certified professionals with proven track record in Microsoft technologies</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Microsoft Gold Partner</h3>
+                <p>Highest level of Microsoft partnership with access to latest technologies, resources, and support channels.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>25+ Certifications</h3>
+                <p>Azure Solutions Architect, AI Engineer, Power Platform Developer, and Office 365 specialist certifications.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>End-to-End Support</h3>
+                <p>From strategy and planning to implementation, training, and ongoing support for your AI initiatives.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Proven ROI</h3>
+                <p>Average 45% productivity improvement and $2.3M annual savings across our client implementations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Get started with a free AI assessment and discover how Microsoft AI solutions can drive innovation and efficiency in your organization.</p>
+                    
+                    <ul class="contact-methods">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@aisolutionspro.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Tech Plaza, Innovation District, NY 10001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM EST</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-microsoft"></i>
+                            <span>Microsoft Gold Partner ID: 12345678</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="azure-ai">Azure AI Implementation</option>
+                                <option value="power-platform">Power Platform AI</option>
+                                <option value="copilot">Microsoft Copilot Integration</option>
+                                <option value="consulting">AI Strategy Consulting</option>
+                                <option value="custom">Custom AI Development</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your AI requirements and business objectives..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Schedule Free Consultation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
@@ -680,18 +1114,52 @@
             });
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links with header offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 24 hours.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
         });
 
         // Animate stats on scroll
